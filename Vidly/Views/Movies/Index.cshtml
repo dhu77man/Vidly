@@ -1,0 +1,21 @@
+﻿@model Vidly.ViewModels.MoviesViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Movies.Count == 0)
+{
+    <p>We currently have no movies for sale :(</p>
+}
+else
+{
+    <ul>
+        @{ int i = 0; }
+        @foreach (var movie in Model.Movies)
+        {
+            <li><a href="/Movies/Details/@i">@movie.Name</a></li>
+            @{ i += 1; }
+        }
+    </ul>
+}
